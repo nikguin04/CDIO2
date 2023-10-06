@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "src",
+        "cdio2/src/main/java/com/g16/test"
+    ]
+}
