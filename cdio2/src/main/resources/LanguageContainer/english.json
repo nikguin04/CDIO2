@@ -1,0 +1,8 @@
+{
+    "name": "English",
+    "dictionary": {
+        "str1": "Hello, World!",
+        "str2": "This is indexed from str2!",
+        "str3": "Format test: Hello, %s!"
+    }
+}
