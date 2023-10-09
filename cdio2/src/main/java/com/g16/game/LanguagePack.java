@@ -51,4 +51,7 @@ public class LanguagePack {
             return index; // return original string input
         }
     }
+    public String[] getIndexes() {
+        return dictionary.keySet().toArray(String[]::new);
+    }
 }
