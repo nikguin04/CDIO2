@@ -6,7 +6,7 @@ import org.junit.Test;
 public class LanguageTest {
 
     public String[] expectedLanguageIndexes = {
-        "str1", "str2", "str3"
+        "square_2", "square_3", "square_4", "square_5", "square_6", "square_7", "square_8", "square_9", "square_10", "square_11", "square_12", 
     };
     @Test
     public void TestExpectedIndexesEnglish() {
@@ -18,7 +18,7 @@ public class LanguageTest {
     public void TestEnglishLanguagePack() {
         LanguagePack lpack = new LanguagePack("english.json");
 
-        Assert.assertEquals("Hello, World!", lpack.getString("str1"));
+        Assert.assertEquals("You have made your way to a Tower, and found %d money!", lpack.getString("square_2"));
 
         //System.out.println("str1: " + lpack.getString("str1")); 
         //System.out.println("str2: " + lpack.getString("str2")); 

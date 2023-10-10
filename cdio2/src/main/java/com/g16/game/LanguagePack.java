@@ -48,7 +48,7 @@ public class LanguagePack {
         } catch (Exception e) {
             System.out.println("An error occurred while reading language string!");
             e.printStackTrace();
-            return index; // return original string input
+            return "MISSING: " + index; // return original string input with missing prefix
         }
     }
     public String[] getIndexes() {
