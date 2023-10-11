@@ -1,8 +1,16 @@
 {
     "name": "English",
     "dictionary": {
-        "str1": "Hello, World!",
-        "str2": "This is indexed from str2!",
-        "str3": "Format test: Hello, %s!"
+        "square_2": "You have made your way to a Tower, and found %d money!",
+        "square_3": "You walked into a Crater, and dropped %d money!",
+        "square_4": "You stand in front of the Palace gates, and got %d money!",
+        "square_5": "You walk through a Cold desert, and lose %d money on the way!",
+        "square_6": "You stand in front on the Walled city, and a drunk gatekeeper drops %d money!",
+        "square_7": "You make your way through the Monastery, your money remains unchanged!",
+        "square_8": "You explore the dark Black cave, and pay the entrance fee of %d money!",
+        "square_9": "You spend a night at the Huts in the mountain, a demented grandpa left %d money under the pillow!",
+        "square_10": "You stand at The Werewall, you make a deal with a werewolf, and pay %d money for a new turn!",
+        "square_11": "You twist your ankle in The pit, and pay %d money for a crutch!",
+        "square_12": "You got lucky in the Goldmine, and sell your gold to the shopkeeper for %d money!"
     }
 }

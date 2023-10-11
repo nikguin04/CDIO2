@@ -2,5 +2,6 @@
     "java.project.sourcePaths": [
         "src",
         "cdio2/src/main/java/com/g16/test"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
