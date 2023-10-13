@@ -6,7 +6,7 @@ public class Game {
     public static void main(String[] args) {
         InitializeGame();
     }
-
+    private static LanguagePack languagePack;
     public static void InitializeGame() {
         Scanner scanner = new Scanner(System.in);
 
@@ -14,7 +14,7 @@ public class Game {
         Player[] players = {new Player("Player 1"), new Player("Player 2")};
 
         // Initialize language pack as english, this can be changed later!
-        LanguagePack languagePack = new LanguagePack("English");
+        languagePack = new LanguagePack("English");
         SettingsMenu.SettingsPrompt(scanner, players, languagePack);
 
     }
@@ -32,6 +32,6 @@ public class Game {
     }*/
 
     public static void SetLanguage(String langFileName) {
-
+        languagePack = new LanguagePack(langFileName);
     }
 }
