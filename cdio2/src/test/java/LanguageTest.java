@@ -1,4 +1,5 @@
 import com.g16.game.LanguagePack;
+import com.g16.game.SettingsMenu;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,5 +24,11 @@ public class LanguageTest {
         //System.out.println("str1: " + lpack.getString("str1")); 
         //System.out.println("str2: " + lpack.getString("str2")); 
         //System.out.println("str3 (World): " + String.format(lpack.getString("str3"), "World")); 
+    }
+
+    @Test
+    public void TestLanguageSettings() {
+        System.out.println("asdasdasdas");
+        LanguagePack.getAllPacks();
     }
 }

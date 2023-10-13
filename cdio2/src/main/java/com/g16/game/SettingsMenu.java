@@ -18,6 +18,7 @@ public class SettingsMenu {
 
     private static void PromptLanguage() {
         System.out.println("Asking for language!!!");
+        String[] packs = LanguagePack.getAllPacks();
     }
     private static void PromptNames() {
 

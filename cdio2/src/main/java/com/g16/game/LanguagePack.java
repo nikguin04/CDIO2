@@ -6,9 +6,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+import java.net.URI;
+import java.net.URL;
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 
@@ -55,8 +66,35 @@ public class LanguagePack {
         return dictionary.keySet().toArray(String[]::new);
     }
 
-    public String[] getAllPacks() {
-        
-        return new String[0];
+    public static String[] getAllPacks() {
+        ClassLoader classLoader = LanguagePack.class.getClassLoader();
+        try {
+            String inResourcesPath = "/LanguageContainer";
+            URI uri = LanguagePack.class.getResource(inResourcesPath).toURI();
+            Stream<Path> walk = Files.walk(Path.of(uri), 1);
+
+            List<Path> list = walk.toList();
+            String[] toReturn = new String[list.size()-1];
+            for (int i = 1; i < list.size(); i++) {
+                //System.out.println("ELEMENT: " + list.get(i).toString());
+                String str = list.get(i).toString();
+                Matcher m = Pattern.compile("\\\\([a-zA-Z0-9]*?).json", 0).matcher(str);
+                if (m.find()) {
+                    str = m.group(1);
+                }
+                toReturn[i-1] = str;
+                System.out.println("str: " + str);
+            }
+
+
+
+            return new String[0];
+        } catch (Exception e) {
+            System.out.println("FATAL ERROR IN LANGUAGE RESOURCES");
+            System.out.println(e.getMessage());
+            return new String[0];
+        }
+        //InputStream inputStream = classLoader.getResourceAsStream("LanguageContainer/" + packName + ".json");
+       
     }
 }
