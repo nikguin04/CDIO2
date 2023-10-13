@@ -10,6 +10,7 @@ import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import java.net.URI;
 import java.net.URL;
+
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 
@@ -74,7 +76,9 @@ public class LanguagePack {
             Stream<Path> walk = Files.walk(Path.of(uri), 1);
 
             List<Path> list = walk.toList();
-            String[] toReturn = new String[list.size()-1];
+            walk.close();
+            List<String> toRet = new ArrayList<String>();
+
             for (int i = 1; i < list.size(); i++) {
                 //System.out.println("ELEMENT: " + list.get(i).toString());
                 String str = list.get(i).toString();
@@ -82,13 +86,9 @@ public class LanguagePack {
                 if (m.find()) {
                     str = m.group(1);
                 }
-                toReturn[i-1] = str;
-                System.out.println("str: " + str);
+                toRet.add(str);
             }
-
-
-
-            return new String[0];
+            return toRet.stream().toArray(String[]::new);
         } catch (Exception e) {
             System.out.println("FATAL ERROR IN LANGUAGE RESOURCES");
             System.out.println(e.getMessage());

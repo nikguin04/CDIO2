@@ -14,7 +14,7 @@ public class Game {
         Player[] players = {new Player("Player 1"), new Player("Player 2")};
 
         // Initialize language pack as english, this can be changed later!
-        LanguagePack languagePack = new LanguagePack("english");
+        LanguagePack languagePack = new LanguagePack("English");
         SettingsMenu.SettingsPrompt(scanner, players, languagePack);
 
     }
@@ -31,7 +31,7 @@ public class Game {
 
     }*/
 
-    public void SetLanguage(String langFileName) {
+    public static void SetLanguage(String langFileName) {
 
     }
 }

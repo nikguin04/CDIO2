@@ -2,7 +2,8 @@
     "name": "English",
     "dictionary": {
         "s_prompt_changeLanguageQuestion": "Do you wish to change language from default language (English)?: [Y/N]",
-        
+        "s_prompt_printLanguages": "Please input a number, according to following available languages: %s",
+        "s_prompt_settingLanguageTo": "Setting language to: %s",
         "square_2": "You have made your way to a Tower, and found %d money!",
         "square_3": "You walked into a Crater, and dropped %d money!",
         "square_4": "You stand in front of the Palace gates, and got %d money!",

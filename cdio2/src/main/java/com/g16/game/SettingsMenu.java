@@ -1,27 +1,59 @@
 package com.g16.game;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SettingsMenu {
     private static Scanner scanner;
     private static Player[] players;
-    private static Game game;
+    private static LanguagePack langPack;
 
     public static void SettingsPrompt(Scanner _scanner, Player[] _players, LanguagePack lang) {
         scanner = _scanner;
         players = _players;
+        langPack = lang;
 
-        System.out.println(lang.getString("s_prompt_changeLanguageQuestion"));
+        System.out.println(langPack.getString("s_prompt_changeLanguageQuestion"));
         if (AwaitYesNo()) {
             PromptLanguage();
         }
     }
 
     private static void PromptLanguage() {
-        System.out.println("Asking for language!!!");
+
         String[] packs = LanguagePack.getAllPacks();
+        if (packs.length > 0) {
+            String langOutputString = "";
+            for (int i = 0; i < packs.length; i++) {
+                langOutputString += String.format("%s [%d], ", packs[i], i);
+            }
+            langOutputString = langOutputString.substring(0, langOutputString.length() - 2); // Cut off last comma and space
+            System.out.println(String.format(langPack.getString("s_prompt_printLanguages"), langOutputString));
+            
+            int intChosen = -1;
+            while (intChosen == -1) { // Await input and make sure it is in range
+                String chosen = AwaitGroup("^([0-9]*)$");
+                int tempConv = Integer.parseInt(chosen);
+                if (tempConv >= 0 && tempConv < packs.length) {
+                    intChosen = tempConv;
+                }
+            }
+            System.out.println(String.format(langPack.getString("s_prompt_settingLanguageTo"), packs[intChosen]));
+            Game.SetLanguage(packs[intChosen]);
+        }
     }
     private static void PromptNames() {
 
+    }
+
+    private static String AwaitGroup(String regex) {
+        while (true) {
+            String inpStr = scanner.nextLine();
+            Matcher m = Pattern.compile(regex, 0).matcher(inpStr);
+                if (inpStr != "" && m.find()) {
+                    return m.group(1);
+                }
+        }
     }
     
     private static boolean AwaitYesNo() {
