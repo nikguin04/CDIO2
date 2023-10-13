@@ -25,7 +25,7 @@ public class LanguagePack {
             //LanguagePack object = gson.fromJson(new FileReader("C:\\Users\\nikla\\Desktop\\Programmering\\mvn\\cdio2\\src\\main\\java\\com\\g16\\LanguageContainer\\" + packName), LanguagePack.class);
 
             ClassLoader classLoader = getClass().getClassLoader();
-            InputStream inputStream = classLoader.getResourceAsStream("LanguageContainer/" + packName);
+            InputStream inputStream = classLoader.getResourceAsStream("LanguageContainer/" + packName + ".json");
             try {
                 String read = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
                 LanguagePack object = gson.fromJson(read, LanguagePack.class);
@@ -53,5 +53,10 @@ public class LanguagePack {
     }
     public String[] getIndexes() {
         return dictionary.keySet().toArray(String[]::new);
+    }
+
+    public String[] getAllPacks() {
+        
+        return new String[0];
     }
 }

@@ -10,13 +10,13 @@ public class LanguageTest {
     };
     @Test
     public void TestExpectedIndexesEnglish() {
-        LanguagePack lpack = new LanguagePack("english.json");
+        LanguagePack lpack = new LanguagePack("english");
         Assert.assertArrayEquals(lpack.getIndexes(), expectedLanguageIndexes);
     }
 
     @Test
     public void TestEnglishLanguagePack() {
-        LanguagePack lpack = new LanguagePack("english.json");
+        LanguagePack lpack = new LanguagePack("english");
 
         Assert.assertEquals("You have made your way to a Tower, and found %d money!", lpack.getString("square_2"));
 
