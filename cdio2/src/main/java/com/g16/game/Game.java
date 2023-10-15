@@ -10,7 +10,7 @@ public class Game {
     public static void InitializeGame() {
         Scanner scanner = new Scanner(System.in);
 
-        // CLASS TO BE IMPLEMENTED LATER:
+        // Initialize players with default names, prompt for name in settings later
         Player[] players = {new Player("Player 1"), new Player("Player 2")};
 
         // Initialize language pack as english, this can be changed later!

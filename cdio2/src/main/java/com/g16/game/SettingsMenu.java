@@ -17,6 +17,10 @@ public class SettingsMenu {
         if (AwaitYesNo()) {
             PromptLanguage();
         }
+        System.out.println(langPack.getString("s_prompt_changePlayerNameQuestion"));
+        if (AwaitYesNo()) {
+            PromptNames();
+        }
     }
 
     private static void PromptLanguage() {
@@ -43,7 +47,13 @@ public class SettingsMenu {
         }
     }
     private static void PromptNames() {
-
+        for (int i = 0; i < players.length; i++) {
+            System.out.println(String.format(langPack.getString("s_prompt_changePlayerNameInputPrompt"), i+1));
+            String newName = scanner.nextLine();
+            Player player = players[i];
+            player.SetName(newName);
+        }
+        System.out.println(langPack.getString("s_prompt_changePlayerNameSuccess"));
     }
 
     private static String AwaitGroup(String regex) {

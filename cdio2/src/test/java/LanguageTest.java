@@ -7,7 +7,23 @@ import org.junit.Test;
 public class LanguageTest {
 
     public String[] expectedLanguageIndexes = {
-        "s_prompt_changeLanguageQuestion", "s_prompt_printLanguages", "s_prompt_settingLanguageTo", "square_2", "square_3", "square_4", "square_5", "square_6", "square_7", "square_8", "square_9", "square_10", "square_11", "square_12", 
+        "s_prompt_changeLanguageQuestion",
+        "s_prompt_printLanguages",
+        "s_prompt_settingLanguageTo",
+        "s_prompt_changePlayerNameQuestion",
+        "s_prompt_changePlayerNameInputPrompt",
+        "s_prompt_changePlayerNameSuccess",
+        "square_2",
+        "square_3",
+        "square_4",
+        "square_5",
+        "square_6",
+        "square_7",
+        "square_8",
+        "square_9",
+        "square_10",
+        "square_11",
+        "square_12"
     };
 
     @Test
