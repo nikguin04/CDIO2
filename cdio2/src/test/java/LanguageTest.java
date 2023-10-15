@@ -7,13 +7,8 @@ import org.junit.Test;
 public class LanguageTest {
 
     public String[] expectedLanguageIndexes = {
-        "square_2", "square_3", "square_4", "square_5", "square_6", "square_7", "square_8", "square_9", "square_10", "square_11", "square_12", 
+        "s_prompt_changeLanguageQuestion", "s_prompt_printLanguages", "s_prompt_settingLanguageTo", "square_2", "square_3", "square_4", "square_5", "square_6", "square_7", "square_8", "square_9", "square_10", "square_11", "square_12", 
     };
-    @Test
-    public void TestExpectedIndexesEnglish() {
-        LanguagePack lpack = new LanguagePack("english");
-        Assert.assertArrayEquals(lpack.getIndexes(), expectedLanguageIndexes);
-    }
 
     @Test
     public void TestEnglishLanguagePack() {
@@ -27,8 +22,11 @@ public class LanguageTest {
     }
 
     @Test
-    public void TestLanguageSettings() {
-        System.out.println("asdasdasdas");
-        LanguagePack.getAllPacks();
+    public void TestAllLanguagePackIndexes() {
+        String[] packs = LanguagePack.getAllPacks();
+        for (String pack: packs) {
+            LanguagePack lpack = new LanguagePack(pack);
+            Assert.assertArrayEquals(lpack.getIndexes(), expectedLanguageIndexes);
+        }
     }
 }
