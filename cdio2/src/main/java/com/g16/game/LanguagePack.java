@@ -6,9 +6,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+import java.net.URI;
+import java.net.URL;
+
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 
@@ -25,7 +38,7 @@ public class LanguagePack {
             //LanguagePack object = gson.fromJson(new FileReader("C:\\Users\\nikla\\Desktop\\Programmering\\mvn\\cdio2\\src\\main\\java\\com\\g16\\LanguageContainer\\" + packName), LanguagePack.class);
 
             ClassLoader classLoader = getClass().getClassLoader();
-            InputStream inputStream = classLoader.getResourceAsStream("LanguageContainer/" + packName);
+            InputStream inputStream = classLoader.getResourceAsStream("LanguageContainer/" + packName + ".json");
             try {
                 String read = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
                 LanguagePack object = gson.fromJson(read, LanguagePack.class);
@@ -53,5 +66,35 @@ public class LanguagePack {
     }
     public String[] getIndexes() {
         return dictionary.keySet().toArray(String[]::new);
+    }
+
+    public static String[] getAllPacks() {
+        ClassLoader classLoader = LanguagePack.class.getClassLoader();
+        try {
+            String inResourcesPath = "/LanguageContainer";
+            URI uri = LanguagePack.class.getResource(inResourcesPath).toURI();
+            Stream<Path> walk = Files.walk(Path.of(uri), 1);
+
+            List<Path> list = walk.toList();
+            walk.close();
+            List<String> toRet = new ArrayList<String>();
+
+            for (int i = 1; i < list.size(); i++) {
+                //System.out.println("ELEMENT: " + list.get(i).toString());
+                String str = list.get(i).toString();
+                Matcher m = Pattern.compile("\\\\([a-zA-Z0-9]*?).json", 0).matcher(str);
+                if (m.find()) {
+                    str = m.group(1);
+                }
+                toRet.add(str);
+            }
+            return toRet.stream().toArray(String[]::new);
+        } catch (Exception e) {
+            System.out.println("FATAL ERROR IN LANGUAGE RESOURCES");
+            System.out.println(e.getMessage());
+            return new String[0];
+        }
+        //InputStream inputStream = classLoader.getResourceAsStream("LanguageContainer/" + packName + ".json");
+       
     }
 }
