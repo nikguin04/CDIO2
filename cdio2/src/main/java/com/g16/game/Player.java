@@ -1,22 +1,16 @@
 package com.g16.game;
 
 interface player{
-    public int Account;
+    public int account;
     public String name;
     public String setName():
 }
 
-public class Player {
-    private String name;
-    public Player (String _name) {
-        name = _name;
+class Player implements player{
+
+    public Player(){
+        this.name = name;
+        this.account = account;
     }
 
-
-    public String GetName() {
-        return name;
-    }
-    public void SetName(String _name) {
-        name = _name;
-    }
 }
