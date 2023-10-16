@@ -3,7 +3,7 @@ package com.g16.game;
 interface player{
     public int account;
     public String name;
-    public String setName():
+    public String setName();
 }
 
 class Player implements player{
@@ -12,5 +12,7 @@ class Player implements player{
         this.name = name;
         this.account = account;
     }
-
+    public String setname(){
+        return this.name;
+    }
 }
