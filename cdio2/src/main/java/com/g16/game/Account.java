@@ -2,7 +2,7 @@ package com.g16.game;
 
 public class Account{
     private int Money;
-    private int GetMoney() {
+    public int GetMoney() {
         return Money;
     }
     public void ModifyMoney(int _money) {
