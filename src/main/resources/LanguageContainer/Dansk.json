@@ -1,0 +1,22 @@
+{
+    "name": "Dansk",
+    "dictionary": {
+        "s_prompt_changeLanguageQuestion": "Ønsker du at skifte sprog fra standard sproget (Dansk)?: [Y/N]",
+        "s_prompt_printLanguages": "Input venligst et nummer, svarende til følgde tilgængelige sprog: : %s",
+        "s_prompt_settingLanguageTo": "Sætter sprog til: %s",
+        "s_prompt_changePlayerNameQuestion": "Ønsker du at vælge egne spillernavne?: [Y/N]",
+        "s_prompt_changePlayerNameInputPrompt": "Input venligst et navn for: Spiller %d",
+        "s_prompt_changePlayerNameSuccess": "Nanve for alle spillere er blevet skiftet. Spillet vil nu starte!",
+        "square_2": "Du har gået gen til Tårnet, og fundet %d penge!",
+        "square_3": "Du er snublet ned i et Krater, og tabte %d penge!",
+        "square_4": "Du står foran Paladsets port, og får %d penge!",
+        "square_5": "Du går gennem den kolde ørken, og taber %d penge på vejen!",
+        "square_6": "Du står foran den Befæstede by og en fuld portvagt taber %d penge!!",
+        "square_7": "Du går igennem Klosteret, dine penge forbliver uskiftet!",
+        "square_8": "Du udforsker den mørke Sorte hule, og betaler en indgangspris på %d penge!",
+        "square_9": "Du sover en nat ved Hytterne i bjergene, en dement bedstefar har efterladt %d penge under puden!",
+        "square_10": "Du står ved Vareulve væggen, du laver en handel med vareulven og betaler %d penge for en ny tur!",
+        "square_11": "Du vrider om på anklen i Hullet, og betaler  %d penge for et nye par krøkker!",
+        "square_12": "Du har været heldig i Guldminen, og sælger dit guld til guldsmeden for %d penge!"
+    }
+}
