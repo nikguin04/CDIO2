@@ -24,7 +24,7 @@ public class Game {
     }
 
     public void PlayRound() {
-
+        languagePack.getString("square_2");
     }
 
     /*private boolean CheckWinCondition(Player player) { // Player class not yet implemented!
