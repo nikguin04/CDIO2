@@ -21,17 +21,37 @@ public class Game {
         // Prompt player for settings (name and language change)
         SettingsMenu.SettingsPrompt(scanner, players, languagePack);
 
+        // Now we can start the game loop
+        StartGame();
+
     }
 
-    public void StartGame() {
+    public static void StartGame() {
+        boolean playerWon = false;
+        Dice dice = new Dice(2, 6);
+        while (!playerWon) { // Play until player has won
+            for (Player player : players) { // make this to an int for loop
+                Dice.DiceThrow dicethrow = dice.DiceThrow();
 
+                BoardSquare landedSquare = board.getSquare(dicethrow.addedResult);
+                System.out.println(String.format(languagePack.getString(landedSquare.squareText), landedSquare.moneyEffect));
+                player.account.ModifyMoney(landedSquare.moneyEffect);
+
+                // End of turn, check if player has won and game is over
+                if (CheckWinCondition(player)) {
+                    System.out.println(player.GetName() + " Has won"); // temp text. use lang pack
+                    playerWon = true;
+                    break;
+                }
+            }
+        }
     }
 
-    public void PlayRound() {
+    public static void PlayRound() {
         languagePack.getString("square_2");
     }
 
-    private boolean CheckWinCondition(Player player) {
+    private static boolean CheckWinCondition(Player player) {
         return player.account.GetMoney() >= 3000;
     }
 

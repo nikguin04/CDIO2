@@ -1,3 +1,4 @@
+package com.g16.game;
 import java.util.SplittableRandom;
 
 public class Dice {
