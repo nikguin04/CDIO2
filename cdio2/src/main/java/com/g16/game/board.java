@@ -17,7 +17,7 @@ public class board {
     };
 
     public static BoardSquare getSquare(int squareNumber) {
-        return board.boardSquares[squareNumber - 1];
+        return board.boardSquares[squareNumber - 2];
     }
 
  
