@@ -64,6 +64,9 @@ public class LanguagePack {
             return "MISSING: " + index; // return original string input with missing prefix
         }
     }
+    public String getName() {
+        return name;
+    }
     public String[] getIndexes() {
         return dictionary.keySet().toArray(String[]::new);
     }

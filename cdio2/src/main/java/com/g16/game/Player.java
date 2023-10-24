@@ -7,6 +7,10 @@ public class Player {
         name = _name;
         account = new Account(1000);
     }
+    public Player (String _name, int _money) {
+        name = _name;
+        account = new Account(_money);
+    }
 
 
     public String GetName() {

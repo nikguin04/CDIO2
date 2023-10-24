@@ -12,15 +12,46 @@ public class SettingsMenu {
         scanner = _scanner;
         players = _players;
         langPack = lang;
+        
+        System.out.println("Import game yes no");
+        if (AwaitYesNo()) {
+            PromptGameSave();
+        } else {
+            System.out.println(langPack.getString("s_prompt_changeLanguageQuestion"));
+            if (AwaitYesNo()) {
+                PromptLanguage();
+            }
+            System.out.println(langPack.getString("s_prompt_changePlayerNameQuestion"));
+            if (AwaitYesNo()) {
+                PromptNames();
+            }
+        }
+    }
 
-        System.out.println(langPack.getString("s_prompt_changeLanguageQuestion"));
-        if (AwaitYesNo()) {
-            PromptLanguage();
+    private static void PromptGameSave() {
+
+        String[] gamesaves = Savetool.getAllSaveFiles();
+        if (gamesaves.length > 0) {
+            String sOutputString = "";
+            for (int i = 0; i < gamesaves.length; i++) {
+                sOutputString += String.format("%s [%d]\n", gamesaves[i], i);
+            }
+            sOutputString = sOutputString.substring(0, sOutputString.length() - 1); // Cut off last line break
+            System.out.println(String.format("Please input a number, according to following available save files:\n%s", sOutputString));
+            
+
+           
+            int intChosen = -1;
+            while (intChosen == -1) { // Await input and make sure it is in range
+                String chosen = AwaitGroup("^([0-9]*)$");
+                int tempConv = Integer.parseInt(chosen);
+                if (tempConv >= 0 && tempConv < gamesaves.length) {
+                    intChosen = tempConv;
+                }
+            }
+            Savetool.ImportGame(gamesaves[intChosen]);
         }
-        System.out.println(langPack.getString("s_prompt_changePlayerNameQuestion"));
-        if (AwaitYesNo()) {
-            PromptNames();
-        }
+
     }
 
     private static void PromptLanguage() {
