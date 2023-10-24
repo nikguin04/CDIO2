@@ -36,6 +36,8 @@ public class Game {
                 BoardSquare landedSquare = board.getSquare(dicethrow.addedResult);
                 System.out.println(String.format(languagePack.getString(landedSquare.squareText), landedSquare.moneyEffect));
                 player.account.ModifyMoney(landedSquare.moneyEffect);
+                System.out.println(player.GetName() + ": " + player.account.GetMoney() + " money"); // temp text. use lang pack
+                
 
                 // End of turn, check if player has won and game is over
                 if (CheckWinCondition(player)) {
@@ -43,6 +45,7 @@ public class Game {
                     playerWon = true;
                     break;
                 }
+                scanner.nextLine(); // wait enter to continue next round
             }
         }
     }
