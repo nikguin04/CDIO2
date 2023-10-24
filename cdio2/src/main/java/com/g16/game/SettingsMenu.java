@@ -44,6 +44,7 @@ public class SettingsMenu {
             }
             System.out.println(String.format(langPack.getString("s_prompt_settingLanguageTo"), packs[intChosen]));
             Game.SetLanguage(packs[intChosen]);
+            langPack = new LanguagePack(packs[intChosen]); // temp set to new language
         }
     }
     private static void PromptNames() {
