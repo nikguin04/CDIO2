@@ -34,12 +34,17 @@ public class Game {
         while (!playerWon) { // Play until player has won
             for (;turn < 2; turn++) { // make this to an int for loop
                 Player player = players[turn];
+
+                System.out.print(player.GetName() + languagePack.getString("game_turn"));
+                HandleMidgameInput(scanner.nextLine()); // wait enter to continue next round
+
                 Dice.DiceThrow dicethrow = dice.DiceThrow();
 
                 BoardSquare landedSquare = board.getSquare(dicethrow.addedResult);
                 System.out.println(String.format(languagePack.getString(landedSquare.squareText), landedSquare.moneyEffect));
                 player.account.ModifyMoney(landedSquare.moneyEffect);
                 System.out.println(player.GetName() + ": " + player.account.GetMoney() + " money"); // temp text. use lang pack
+                System.out.println();
                 
 
                 // End of turn, check if player has won and game is over
@@ -48,7 +53,7 @@ public class Game {
                     playerWon = true;
                     break;
                 }
-                HandleMidgameInput(scanner.nextLine()); // wait enter to continue next round
+                
             }
             turn = 0;
             roundCount++;

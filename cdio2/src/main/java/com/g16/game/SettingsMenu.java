@@ -13,7 +13,7 @@ public class SettingsMenu {
         players = _players;
         langPack = lang;
         
-        System.out.println("Import game yes no");
+        System.out.println(langPack.getString("s_prompt_importGameQuestion"));
         if (AwaitYesNo()) {
             PromptGameSave();
         } else {
@@ -37,7 +37,7 @@ public class SettingsMenu {
                 sOutputString += String.format("%s [%d]\n", gamesaves[i], i);
             }
             sOutputString = sOutputString.substring(0, sOutputString.length() - 1); // Cut off last line break
-            System.out.println(String.format("Please input a number, according to following available save files:\n%s", sOutputString));
+            System.out.println(String.format(langPack.getString("s_prompt_printSaveFiles"), sOutputString));
             
 
            
@@ -49,7 +49,9 @@ public class SettingsMenu {
                     intChosen = tempConv;
                 }
             }
+            System.out.println(String.format(langPack.getString("s_prompt_importingFollowingFile"), gamesaves[intChosen]));
             Savetool.ImportGame(gamesaves[intChosen]);
+            System.out.println();
         }
 
     }

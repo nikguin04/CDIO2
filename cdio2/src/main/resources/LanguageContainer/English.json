@@ -1,12 +1,16 @@
 {
     "name": "English",
     "dictionary": {
+        "s_prompt_importGameQuestion": "Do you wish to load game save file?: [Y/N]",
+        "s_prompt_printSaveFiles": "Please input a number, according to following available save files:\n%s",
+        "s_prompt_importingFollowingFile": "Importing following save file: %s",
         "s_prompt_changeLanguageQuestion": "Do you wish to change language from default language (English)?: [Y/N]",
         "s_prompt_printLanguages": "Please input a number, according to following available languages: %s",
         "s_prompt_settingLanguageTo": "Setting language to: %s",
         "s_prompt_changePlayerNameQuestion": "Do you wish to set custom player names?: [Y/N]",
         "s_prompt_changePlayerNameInputPrompt": "Please input name for: Player %d",
         "s_prompt_changePlayerNameSuccess": "Successfully changed player names. The game will now commence!",
+        "game_turn": "'s Turn! press enter to roll dice",
         "square_2": "You have made your way to a Tower, and found %d money!",
         "square_3": "You walked into a Crater, and dropped %d money!",
         "square_4": "You stand in front of the Palace gates, and got %d money!",

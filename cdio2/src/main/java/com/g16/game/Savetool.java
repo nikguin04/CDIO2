@@ -61,7 +61,7 @@ public class Savetool {
             }
             return toRet.stream().toArray(String[]::new);
         } catch (Exception e) {
-            System.out.println("FATAL ERROR IN GAME SAVE FILES");
+            System.out.println("ERROR IN GAME SAVE FILES");
             System.out.println(e.getMessage());
             return new String[0];
         }
@@ -73,7 +73,7 @@ public class Savetool {
             Game.GameStructure gs = gson.fromJson(new FileReader(filename), Game.GameStructure.class);
             Game.ImportData(gs);
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("ERROR WHEN IMPORTING GAME");
             e.printStackTrace();
         }
     }
