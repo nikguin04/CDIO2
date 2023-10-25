@@ -1,6 +1,9 @@
 {
     "name": "Dansk",
     "dictionary": {
+        "s_prompt_importGameQuestion": "Ønsker du at loade et gemt spil?: [Y/N]",
+        "s_prompt_printSaveFiles": "Input venligst et nummer, svarende til følgde tilgængelige gemte spil:\n%s",
+        "s_prompt_importingFollowingFile": "Importerer følgende gemte spil: %s",
         "s_prompt_changeLanguageQuestion": "Ønsker du at skifte sprog fra standard sproget (Dansk)?: [Y/N]",
         "s_prompt_printLanguages": "Input venligst et nummer, svarende til følgde tilgængelige sprog: : %s",
         "s_prompt_settingLanguageTo": "Sætter sprog til: %s",
