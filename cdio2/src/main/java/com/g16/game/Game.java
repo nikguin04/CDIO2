@@ -40,16 +40,17 @@ public class Game {
             for (;turn < 2; turn++) { // make this to an int for loop
                 Player player = players[turn];
                 Dice.DiceThrow dicethrow = dice.DiceThrow();
+                System.out.println(String.format(languagePack.getString("dicerollresult"), dicethrow.individualResults[0], dicethrow.individualResults[1], dicethrow.addedResult));
 
                 BoardSquare landedSquare = board.getSquare(dicethrow.addedResult);
                 System.out.println(String.format(languagePack.getString(landedSquare.squareText), landedSquare.moneyEffect));
                 player.account.ModifyMoney(landedSquare.moneyEffect);
-                System.out.println(player.GetName() + ": " + player.account.GetMoney() + " money"); // temp text. use lang pack
+                System.out.println(player.GetName() + ": " + player.account.GetMoney() + " " + languagePack.getString("money")); // temp text. use lang pack
                 
 
                 // End of turn, check if player has won and game is over
                 if (CheckWinCondition(player)) {
-                    System.out.println(player.GetName() + " Has won"); // temp text. use lang pack
+                    System.out.println(player.GetName() + " " + languagePack.getString("haswon")); // temp text. use lang pack
                     playerWon = true;
                     break;
                 }
@@ -63,7 +64,7 @@ public class Game {
 
     public static void HandleMidgameInput(String line) {
         if (line.equals("savegame")) {
-            System.out.println("Saving game");
+            System.out.println(languagePack.getString("savegame"));
             Savetool.ExportGame(ExportData());
             System.exit(0);
         }
