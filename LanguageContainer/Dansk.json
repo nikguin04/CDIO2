@@ -13,7 +13,7 @@
         "money": "Penge",
         "haswon": "Har vundet",
         "savegame": "Gammer spil",
-        "game_turn": "'s Tur! tryk enter for at rulle med terningerne",
+        "game_turn": "%s's Tur! tryk enter for at rulle med terningerne",
         "dicerollresult": "Du har rullet %d & %d, til et resultat på: %d",
         "square_2": "Du har gået gen til Tårnet, og fundet %d penge!",
         "square_3": "Du er snublet ned i et Krater, og tabte %d penge!",

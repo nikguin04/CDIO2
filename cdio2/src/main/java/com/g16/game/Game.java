@@ -54,6 +54,7 @@ public class Game {
                     playerWon = true;
                     break;
                 }
+                System.out.println(String.format(languagePack.getString("game_turn"), players[(turn+1)%2].GetName())); 
                 HandleMidgameInput(scanner.nextLine()); // wait enter to continue next round
             }
             turn = 0;
