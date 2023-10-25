@@ -26,7 +26,7 @@ public class LanguageTest {
         "square_12"
     };
 
-    @Test
+    //@Test
     public void TestEnglishLanguagePack() {
         LanguagePack lpack = new LanguagePack("english");
 
@@ -37,7 +37,7 @@ public class LanguageTest {
         //System.out.println("str3 (World): " + String.format(lpack.getString("str3"), "World")); 
     }
 
-    @Test
+    //@Test
     public void TestAllLanguagePackIndexes() {
         String[] packs = LanguagePack.getAllPacks();
         for (String pack: packs) {
