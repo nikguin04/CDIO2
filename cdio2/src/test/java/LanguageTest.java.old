@@ -7,6 +7,9 @@ import org.junit.Test;
 public class LanguageTest {
 
     public String[] expectedLanguageIndexes = {
+        "s_prompt_importGameQuestion",
+        "s_prompt_printSaveFiles",
+        "s_prompt_importingFollowingFile",
         "s_prompt_changeLanguageQuestion",
         "s_prompt_printLanguages",
         "s_prompt_settingLanguageTo",
@@ -28,7 +31,7 @@ public class LanguageTest {
 
     @Test
     public void TestEnglishLanguagePack() {
-        LanguagePack lpack = new LanguagePack("english");
+        LanguagePack lpack = new LanguagePack("English");
 
         Assert.assertEquals("You have made your way to a Tower, and found %d money!", lpack.getString("square_2"));
 
@@ -40,6 +43,7 @@ public class LanguageTest {
     @Test
     public void TestAllLanguagePackIndexes() {
         String[] packs = LanguagePack.getAllPacks();
+        Assert.assertEquals(packs[0], "_english");
         for (String pack: packs) {
             LanguagePack lpack = new LanguagePack(pack);
             Assert.assertArrayEquals(lpack.getIndexes(), expectedLanguageIndexes);

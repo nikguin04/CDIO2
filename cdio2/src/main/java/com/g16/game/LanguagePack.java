@@ -10,6 +10,7 @@ import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -35,13 +36,9 @@ public class LanguagePack {
     public LanguagePack(String packName) {
         try {
             Gson gson = new Gson();
-            //LanguagePack object = gson.fromJson(new FileReader("C:\\Users\\nikla\\Desktop\\Programmering\\mvn\\cdio2\\src\\main\\java\\com\\g16\\LanguageContainer\\" + packName), LanguagePack.class);
 
-            ClassLoader classLoader = getClass().getClassLoader();
-            InputStream inputStream = classLoader.getResourceAsStream("LanguageContainer/" + packName + ".json");
             try {
-                String read = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
-                LanguagePack object = gson.fromJson(read, LanguagePack.class);
+                LanguagePack object = gson.fromJson(new FileReader("LanguageContainer\\" + packName + ".json"), LanguagePack.class);
                 this.name = object.name;
                 this.dictionary = object.dictionary;
             } catch (IOException e) {
@@ -64,16 +61,16 @@ public class LanguagePack {
             return "MISSING: " + index; // return original string input with missing prefix
         }
     }
+    public String getName() {
+        return name;
+    }
     public String[] getIndexes() {
         return dictionary.keySet().toArray(String[]::new);
     }
 
     public static String[] getAllPacks() {
-        ClassLoader classLoader = LanguagePack.class.getClassLoader();
         try {
-            String inResourcesPath = "/LanguageContainer";
-            URI uri = LanguagePack.class.getResource(inResourcesPath).toURI();
-            Stream<Path> walk = Files.walk(Path.of(uri), 1);
+            Stream<Path> walk = Files.walk(Paths.get("LanguageContainer\\"), 1);
 
             List<Path> list = walk.toList();
             walk.close();

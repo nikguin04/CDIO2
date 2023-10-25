@@ -13,7 +13,44 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+                <execution>
+                <phase>package</phase>
+                <goals>
+                    <goal>single</goal>
+                </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <archive>
+                <manifest>
+                    <addClasspath>true</addClasspath>
+                    <mainClass>com.g16.game.Game</mainClass>
+                </manifest>
+                </archive>
+                <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+            </plugin> 
+        </plugins>
 
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+                <includes>
+                <include>**/*.json</include>
+                </includes>
+                <targetPath>${basedir}/target/classes/com/g16/</targetPath>
+            </resource>
+        </resources>
+    </build>
 
     <dependencies>
     
@@ -32,6 +69,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+        <groupId>io.github.classgraph</groupId>
+        <artifactId>classgraph</artifactId>
+        <version>LATEST</version>
+    </dependency>
 
     </dependencies>
 </project>
