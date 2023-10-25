@@ -4,24 +4,29 @@ import java.util.Scanner;
 public class Game {
     
     public static void main(String[] args) {
-        InitializeGame();
+        InitializeGame(false);
     }
     private static LanguagePack languagePack;
     private static Scanner scanner;
     private static Player[] players;
     private static int roundCount = 0;
     private static int turn = 0;
-    public static void InitializeGame() {
-        scanner = new Scanner(System.in);
+    public static void InitializeGame(boolean testMode) {
+        if (!testMode)
+            scanner = new Scanner(System.in);
 
         // Initialize players with default names, prompt for name in settings later
-        players = new Player[] {new Player("Player 1"), new Player("Player 2")};
+        if (!testMode)
+            players = new Player[] {new Player("Player 1"), new Player("Player 2")};
+        else // game is automatically done on first run
+            players= new Player[] {new Player("Player 1",4000), new Player("Player 2",4000)};
 
         // Initialize language pack as english, this can be changed later!
         languagePack = new LanguagePack("English");
  
         // Prompt player for settings (name and language change)
-        SettingsMenu.SettingsPrompt(scanner, players, languagePack);
+        if (!testMode)
+            SettingsMenu.SettingsPrompt(scanner, players, languagePack);
 
         // Now we can start the game loop
         StartGame();
@@ -54,6 +59,7 @@ public class Game {
             roundCount++;
         }
     }
+
 
     public static void HandleMidgameInput(String line) {
         if (line.equals("savegame")) {
