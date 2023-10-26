@@ -13,7 +13,7 @@
         "money": "Money",
         "haswon": "Has won",
         "savegame": "Saving game",
-        "game_turn": "'s Turn! press enter to roll dice",
+        "game_turn": "%s's Turn! press enter to roll dice",
         "dicerollresult": "You rolled %d & %d, for a total of: %d",
         "square_2": "You have made your way to a Tower, and found %d money!",
         "square_3": "You walked into a Crater, and dropped %d money!",

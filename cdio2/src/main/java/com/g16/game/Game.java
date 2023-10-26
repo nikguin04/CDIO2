@@ -47,14 +47,18 @@ public class Game {
                 player.account.ModifyMoney(landedSquare.moneyEffect);
                 System.out.println(player.GetName() + ": " + player.account.GetMoney() + " " + languagePack.getString("money")); // temp text. use lang pack
                 
-
-                // End of turn, check if player has won and game is over
-                if (CheckWinCondition(player)) {
-                    System.out.println(player.GetName() + " " + languagePack.getString("haswon")); // temp text. use lang pack
-                    playerWon = true;
-                    break;
+                if (landedSquare.extraTurn) {
+                    turn--;
+                } else {
+                    // End of turn, check if player has won and game is over
+                    if (CheckWinCondition(player)) {
+                        System.out.println(player.GetName() + " " + languagePack.getString("haswon")); // temp text. use lang pack
+                        playerWon = true;
+                        break;
+                    }
+                    System.out.println(String.format(languagePack.getString("game_turn"), players[(turn+1)%2].GetName())); 
+                    HandleMidgameInput(scanner.nextLine()); // wait enter to continue next round
                 }
-                HandleMidgameInput(scanner.nextLine()); // wait enter to continue next round
             }
             turn = 0;
             roundCount++;
