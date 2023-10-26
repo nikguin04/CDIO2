@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -46,7 +47,7 @@ public class Savetool {
         try {
             Stream<Path> walk = Files.walk(Paths.get("savefiles\\"), 1);
 
-            List<Path> list = walk.toList();
+            List<Path> list = Arrays.asList(walk.toArray(Path[]::new));
             walk.close();
             List<String> toRet = new ArrayList<String>();
             
